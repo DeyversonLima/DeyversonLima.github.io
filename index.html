@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deyverson Lima | Portfólio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 dark:bg-slate-900 dark:text-slate-100 bg-white text-slate-800 transition-colors duration-300 font-sans antialiased">
+
+    <nav class="navbar fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold tracking-wider text-indigo-500">Deyverson.dev</a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#habilidades" class="nav-link">Habilidades</a>
+                    <a href="#projetos" class="nav-link">Projetos</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-800/50 dark:hover:bg-slate-700/40 transition-colors duration-200">
+                        <i id="theme-toggle-icon" class="fas fa-sun text-yellow-400"></i>
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="text-xl focus:outline-none p-2 rounded-full">
+                        <i id="theme-toggle-icon-mobile" class="fas fa-sun text-yellow-400"></i>
+                    </button>
+                    <button id="menu-btn" class="text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 dark:bg-slate-900/95 bg-white/95 backdrop-blur-md border-b border-slate-700/50">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#sobre" class="block mobile-nav-link py-2">Sobre</a>
+                <a href="#habilidades" class="block mobile-nav-link py-2">Habilidades</a>
+                <a href="#projetos" class="block mobile-nav-link py-2">Projetos</a>
+                <a href="#contato" class="block mobile-nav-link py-2">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16 min-h-screen">
+        
+        <section id="hero" class="min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 md:py-24 transition-colors duration-300">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="space-y-6 text-center md:text-left order-2 md:order-1">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                            Olá, eu sou o <br class="hidden sm:inline">
+                            <span class="text-indigo-500">Deyverson Lima</span>
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-medium text-slate-400 dark:text-slate-400 text-gray-600 transition-colors duration-300">
+                            Desenvolvedor Software & Enthusiast de Tecnologia
+                        </p>
+                        <p class="text-base text-slate-400 dark:text-slate-400 text-gray-500 max-w-lg mx-auto md:mx-0 transition-colors duration-300">
+                            Transformando ideias em códigos eficientes e designs responsivos. Bem-vindo ao meu espaço profissional na web.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                            <a href="#projetos" class="btn-primary">
+                                Ver Meus Projetos <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                            <a href="assets/CurrículodoSistemadeCurrículosLattesDeyversonima.pdf" download="Curriculo_Lattes_Deyverson_Lima.pdf" class="btn-secondary">
+                                <i class="fas fa-download mr-2"></i> Baixar CV
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center order-1 md:order-2">
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-indigo-500/30 dark:border-indigo-500/30 border-indigo-500/10 shadow-2xl transition-all duration-300 hover:scale-105">
+                            <img src="assets/img/fotodeyversonlima.jpeg" alt="Foto de Deyverson Lima" class="w-full h-full object-cover" draggable="false">
+                        </div> 
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE MIM & HABILIDADES -->
+        <section id="sobre" class="py-20 border-t border-slate-800/50 dark:border-slate-800/50 border-gray-200 transition-colors duration-300">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    
+                    <!-- Coluna Sobre Mim (Ocupa 1/3 no desktop) -->
+                    <div class="lg:col-span-1 space-y-4">
+                        <h2 class="text-3xl font-bold tracking-tight">
+                            Sobre <span class="text-indigo-500">Mim</span>
+                        </h2>
+                        <div class="w-12 h-1 bg-indigo-500 rounded"></div>
+                        <p class="text-base text-slate-400 dark:text-slate-400 text-gray-600 pt-2 leading-relaxed transition-colors duration-300">
+                            Sou um desenvolvedor apaixonado por criar soluções digitais eficientes e elegantes. Meu foco é escrever código limpo, otimizado e garantir que a experiência do usuário final seja impecável.
+                        </p>
+                        <p class="text-base text-slate-400 dark:text-slate-400 text-gray-600 leading-relaxed transition-colors duration-300">
+                            Estou sempre em busca de aprender novas tecnologias e enfrentar desafios que me façam evoluir profissionalmente.
+                        </p>
+                    </div>
+
+                    <!-- Coluna Habilidades (Ocupa 2/3 no desktop) -->
+                    <div id="habilidades" class="lg:col-span-2 space-y-6">
+                        <div>
+                            <h2 class="text-3xl font-bold tracking-tight">
+                                Minhas <span class="text-indigo-500">Habilidades</span>
+                            </h2>
+                            <div class="w-12 h-1 bg-indigo-500 rounded mt-4"></div>
+                        </div>
+
+                        <!-- Grid de Cards de Tecnologias -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                            
+                            <!-- Card 1: HTML5 -->
+                            <div class="skill-card">
+                                <i class="fab fa-html5 text-orange-500 text-3xl"></i>
+                                <span class="font-medium">HTML5</span>
+                            </div>
+
+                            <!-- Card 2: CSS3 -->
+                            <div class="skill-card">
+                                <i class="fab fa-css3-alt text-blue-500 text-3xl"></i>
+                                <span class="font-medium">CSS3</span>
+                            </div>
+
+                            <!-- Card 3: JavaScript -->
+                            <div class="skill-card">
+                                <i class="fab fa-js text-yellow-500 text-3xl"></i>
+                                <span class="font-medium">JavaScript</span>
+                            </div>
+
+                            <!-- Card 4: Tailwind CSS -->
+                            <div class="skill-card">
+                                <i class="fab fa-css3 text-cyan-400 text-3xl"></i>
+                                <span class="font-medium">Tailwind CSS</span>
+                            </div>
+
+                            <!-- Card 5: Git -->
+                            <div class="skill-card">
+                                <i class="fab fa-git-alt text-orange-600 text-3xl"></i>
+                                <span class="font-medium">Git / GitHub</span>
+                            </div>
+
+                            <!-- Card 6: Banco de Dados -->
+                            <div class="skill-card">
+                                <i class="fas fa-database text-purple-500 text-3xl"></i>
+                                <span class="font-medium">SQL / NoSQL</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projetos" class="py-20 border-t border-slate-800/50 dark:border-slate-800/50 border-gray-200 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center md:text-left mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight">
+                        Projetos em <span class="text-indigo-500">Destaque</span>
+                    </h2>
+                    <div class="w-12 h-1 bg-indigo-500 rounded mt-4 mx-auto md:mx-0"></div>
+                    <p class="text-base text-slate-400 dark:text-slate-400 text-gray-500 mt-2 transition-colors duration-300">
+                        Explore minhas soluções de software, desde ferramentas CLI até sistemas em desenvolvimento.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Capa PortifólioHUB" draggable="false">
+                        </div>
+                        <div class="p-5 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h3 class="text-lg font-bold tracking-tight">portifolioHUB</h3>
+                                    <span class="text-[10px] font-semibold px-2 py-0.5 bg-indigo-500/10 text-indigo-400 rounded whitespace-nowrap">Central</span>
+                                </div>
+                                <p class="text-xs text-slate-400 dark:text-slate-400 text-gray-600 mb-4 leading-relaxed transition-colors duration-300">
+                                    Repositório centralizador que reúne múltiplos projetos e sub-aplicações, servindo como um hub do meu ecossistema.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-5">
+                                    <span class="project-tag">Monorepo</span>
+                                    <span class="project-tag">GitHub API</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/DeyversonLima/portifolioHUB" target="_blank" class="project-btn-code w-full">
+                                <i class="fab fa-github mr-2"></i> Acessar Hub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&q=80" alt="Capa Task Manager CLI" draggable="false">
+                        </div>
+                        <div class="p-5 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h3 class="text-lg font-bold tracking-tight">task-manager-cli</h3>
+                                    <span class="text-[10px] font-semibold px-2 py-0.5 bg-emerald-500/10 text-emerald-400 rounded whitespace-nowrap">Produção</span>
+                                </div>
+                                <p class="text-xs text-slate-400 dark:text-slate-400 text-gray-600 mb-4 leading-relaxed transition-colors duration-300">
+                                    Gerenciador de tarefas via linha de comando. Integra uma API de cotações financeiras em tempo real.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-5">
+                                    <span class="project-tag">CLI</span>
+                                    <span class="project-tag">REST API</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/DeyversonLima/task-manager-cli" target="_blank" class="project-btn-code w-full">
+                                <i class="fab fa-github mr-2"></i> Ver Código
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Capa Imobiliária CRUD" draggable="false">
+                        </div>
+                        <div class="p-5 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h3 class="text-lg font-bold tracking-tight">imobiliaria-crud</h3>
+                                    <span class="text-[10px] font-semibold px-2 py-0.5 bg-amber-500/10 text-amber-400 rounded whitespace-nowrap">Em Dev</span>
+                                </div>
+                                <p class="text-xs text-slate-400 dark:text-slate-400 text-gray-600 mb-4 leading-relaxed transition-colors duration-300">
+                                    Sistema de gerenciamento imobiliário focado em operações CRUD. Desenvolvido de forma colaborativa.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-5">
+                                    <span class="project-tag">CRUD</span>
+                                    <span class="project-tag">Git Flow</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/DeyversonLima/imobiliaria-crud" target="_blank" class="project-btn-code w-full">
+                                <i class="fab fa-github mr-2"></i> Inspecionar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80" alt="Capa Finmarket" draggable="false">
+                        </div>
+                        <div class="p-5 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h3 class="text-lg font-bold tracking-tight">finmarket</h3>
+                                    <span class="text-[10px] font-semibold px-2 py-0.5 bg-purple-500/10 text-purple-400 rounded whitespace-nowrap">Beta</span>
+                                </div>
+                                <p class="text-xs text-slate-400 dark:text-slate-400 text-gray-600 mb-4 leading-relaxed transition-colors duration-300">
+                                    Plataforma voltada ao mercado financeiro em estágio beta. Analisa tendências de ativos com interface inteligente.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-5">
+                                    <span class="project-tag">Fintech</span>
+                                    <span class="project-tag">UX/UI</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/DeyversonLima/finmarket" target="_blank" class="project-btn-code w-full">
+                                <i class="fab fa-github mr-2"></i> Testar Beta
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contato" class="py-20 border-t border-slate-800/50 dark:border-slate-800/50 border-gray-200 transition-colors duration-300">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+                
+                <!-- Título da Seção -->
+                <div class="space-y-3">
+                    <h2 class="text-3xl font-bold tracking-tight">
+                        Vamos construir algo <span class="text-indigo-500">juntos?</span>
+                    </h2>
+                    <div class="w-12 h-1 bg-indigo-500 rounded mt-4 mx-auto"></div>
+                    <p class="text-base text-slate-400 dark:text-slate-400 text-gray-500 max-w-md mx-auto transition-colors duration-300">
+                        Estou disponível para novas oportunidades, projetos freelancer ou apenas para trocar uma ideia sobre tecnologia.
+                    </p>
+                </div>
+
+                <!-- Cards de Conexão Direta -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                    
+                    <!-- E-mail -->
+                    <a href="mailto:seu-email@provedor.com" class="contact-card">
+                        <div class="contact-icon-bg bg-emerald-500/10 text-emerald-500">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">E-mail</h3>
+                        <p class="text-sm text-slate-400 dark:text-slate-400 text-gray-500 truncate w-full transition-colors duration-300">deyverson.g.lima@gmail.com</p>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/deyversonlima" target="_blank" class="contact-card">
+                        <div class="contact-icon-bg bg-blue-500/10 text-blue-500">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">LinkedIn</h3>
+                        <p class="text-sm text-slate-400 dark:text-slate-400 text-gray-500 transition-colors duration-300">/in/deyversonlima</p>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/DeyversonLima" target="_blank" class="contact-card">
+                        <div class="contact-icon-bg bg-slate-500/20 dark:bg-slate-500/20 bg-gray-200 text-slate-400 dark:text-slate-400 text-slate-700">
+                            <i class="fab fa-github text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">GitHub</h3>
+                        <p class="text-sm text-slate-400 dark:text-slate-400 text-gray-500 transition-colors duration-300">/DeyversonLima</p>
+                    </a>
+
+                </div>
+
+                <!-- Botão de Ação Direta extra -->
+                <div class="pt-4">
+                    <a href="https://wa.me/5561994222064?text=Olá,%20Deyverson!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade." target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp mr-2 text-lg"></i> Me chame no WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        </main>
+
+    <footer class="border-t border-slate-800 dark:border-slate-800 border-gray-200 py-8 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-slate-400 dark:text-slate-400 text-gray-500">
+                &copy; 2026 Deyverson Lima. Todos os direitos reservados.
+            </p>
+            <div class="flex space-x-6 text-xl">
+                <a href="https://github.com/DeyversonLima" target="_blank" class="text-slate-400 hover:text-indigo-500 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/deyversonlima" target="_blank" class="text-slate-400 hover:text-indigo-500 transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:deyverson.g.lima@gmail.com" target="_blank" class="text-slate-400 hover:text-indigo-500 transition-colors"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

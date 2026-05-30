@@ -1,0 +1,313 @@
+/* Customizações globais complementares ao Tailwind */
+
+/* Estilização da Navbar com efeito de vidro (Blur) */
+.navbar {
+    background-color: rgba(15, 23, 42, 0.8); /* slate-900 com opacidade */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5); /* slate-700/50 */
+}
+
+/* Quando o modo claro estiver ativo (.dark é removido do <html>) */
+html:not(.dark) .navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8); /* gray-200 */
+}
+
+/* Links da navegação Desktop */
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    color: #94a3b8; /* slate-400 */
+}
+
+.nav-link:hover {
+    color: #6366f1; /* indigo-500 */
+}
+
+html:not(.dark) .nav-link {
+    color: #475569; /* slate-650 */
+}
+
+html:not(.dark) .nav-link:hover {
+    color: #6366f1;
+}
+
+/* Links da navegação Mobile */
+.mobile-nav-link {
+    color: #94a3b8;
+    font-weight: 500;
+}
+html:not(.dark) .mobile-nav-link {
+    color: #475569;
+}
+
+/* ==========================================================================
+   BOTÕES DE AÇÃO (HERO)
+   ========================================================================== */
+
+/* Botão Principal (Roxo/Indigo) */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: #6366f1; /* indigo-500 */
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4f46e5; /* indigo-600 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.6);
+}
+
+/* Botão Secundário (Borda / Transparente) */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 2px solid #6366f1;
+    color: #6366f1;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #6366f1;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Ajuste de cor de texto para os links do botão secundário no modo claro */
+html:not(.dark) .btn-secondary:not(:hover) {
+    color: #4f46e5;
+    border-color: #4f46e5;
+}
+
+/* ==========================================================================
+   CARDS DE HABILIDADES
+   ========================================================================== */
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #1e293b; /* slate-800 */
+    border: 1px solid rgba(51, 65, 85, 0.5); /* slate-700/50 */
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Efeito de hover (passar o mouse) nos cards */
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: #6366f1; /* Borda roxa/índigo */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Adaptação automática para o Modo Claro */
+html:not(.dark) .skill-card {
+    background-color: #f8fafc; /* slate-50 (fundo bem clarinho) */
+    border-color: #e2e8f0; /* gray-200 */
+    color: #334155; /* slate-700 */
+}
+
+html:not(.dark) .skill-card:hover {
+    background-color: #ffffff;
+    border-color: #6366f1;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+}
+
+/* ==========================================================================
+   SEÇÃO DE PROJETOS (GRID EXCLUSIVO)
+   ========================================================================== */
+
+/* Card Principal */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #1e293b; /* Slate-800 */
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+/* Efeito Premium de Levitação e Sombra Proporcional */
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #6366f1; /* Detalhe Indigo */
+    box-shadow: 0 12px 20px -5px rgba(99, 102, 241, 0.15), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Container da Imagem de Capa */
+.project-img-container {
+    width: 100%;
+    height: 10rem; 
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+.project-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+/* Efeito Zoom Inteligente na Capa */
+.project-card:hover .project-img-container img {
+    transform: scale(1.05);
+}
+
+/* Tags de Tecnologias */
+.project-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    background-color: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+}
+
+/* Botão de Ação do GitHub */
+.project-btn-code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 1px solid #475569; /* Slate-600 */
+    color: #cbd5e1;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.project-btn-code:hover {
+    background-color: #6366f1;
+    border-color: #6366f1;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+/* --- ADAPTAÇÃO AUTOMÁTICA MODO CLARO --- */
+html:not(.dark) .project-card {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+}
+
+html:not(.dark) .project-card:hover {
+    box-shadow: 0 12px 20px -5px rgba(99, 102, 241, 0.12);
+}
+
+html:not(.dark) .project-tag {
+    background-color: rgba(99, 102, 241, 0.08);
+    color: #4f46e5;
+}
+
+html:not(.dark) .project-btn-code {
+    border-color: #cbd5e1;
+    color: #475569;
+}
+
+html:not(.dark) .project-btn-code:hover {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   SEÇÃO DE CONTATO
+   ========================================================================== */
+
+/* Cards de Links de Contato */
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #1e293b; /* slate-800 */
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: #6366f1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Círculo do Ícone */
+.contact-icon-bg {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+/* Botão Customizado do WhatsApp */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: #25d366;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(37, 211, 102, 0.5);
+}
+
+/* Adaptação de Contato para o Modo Claro */
+html:not(.dark) .contact-card {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+}
+
+html:not(.dark) .contact-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+}
+
+/* ==========================================================================
+   PROTEÇÃO DE IMAGENS (BLOQUEIO DE ARRASTRE/SELEÇÃO)
+   ========================================================================== */
+
+/* Impede o usuário de arrastar a foto de perfil e as capas dos projetos */
+.project-img-container img,
+.profile-img, /* Certifique-se de que a tag da sua foto de perfil tenha essa classe ou mude para a correspondente */
+img[alt*="Deyverson"] { 
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}

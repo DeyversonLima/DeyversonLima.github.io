@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <style>
+    .bg { fill: #1e293b; transition: fill 0.3s; }
+    .brackets { fill: #6366f1; }
+    .text { fill: #ffffff; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; font-weight: 800; font-size: 26px; }
+    
+    /* Quando o navegador do usuário estiver em Modo Claro, o fundo do favicon se adapta para não sumir */
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #f8fafc; }
+      .text { fill: #0f172a; }
+    }
+  </style>
+
+  <rect class="bg" width="90" height="90" x="5" y="5" rx="24" />
+
+  <path class="brackets" d="M 28 32 C 24 32, 22 34, 22 38 L 22 44 C 22 47, 20 48, 17 50 C 20 52, 22 53, 22 56 L 22 62 C 22 66, 24 68, 28 68" fill="none" stroke="#6366f1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="brackets" d="M 72 32 C 76 32, 78 34, 78 38 L 78 44 C 78 47, 80 48, 83 50 C 80 52, 78 53, 78 56 L 78 62 C 78 66, 76 68, 72 68" fill="none" stroke="#6366f1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text class="text" x="50%" y="52%" dominant-baseline="middle" text-anchor="middle">DL</text>
+</svg>
