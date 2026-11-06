@@ -1,140 +1,106 @@
-// Menu Mobile Toggle
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = menuBtn.querySelector('i');
+const root = document.documentElement
+const header = document.querySelector('.site-header')
+const themeToggle = document.getElementById('theme-toggle')
+const menuButton = document.getElementById('menu-button')
+const mobileMenu = document.getElementById('mobile-menu')
+const progress = document.getElementById('reading-progress')
+const filterButtons = [...document.querySelectorAll('.filter')]
+const projects = [...document.querySelectorAll('.project-item')]
+const copyButton = document.getElementById('copy-email')
+const copyStatus = document.getElementById('copy-status')
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.classList.toggle('fa-bars');
-    menuIcon.classList.toggle('fa-xmark');
-});
-
-// Fechar menu mobile ao clicar em um link
-document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.add('fa-bars');
-        menuIcon.classList.remove('fa-xmark');
-    });
-});
-
-// Alternador de Tema (Claro/Escuro)
-const html = document.documentElement;
-const themeToggleBtn = document.getElementById('theme-toggle');
-const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-const themeIcon = document.getElementById('theme-toggle-icon');
-const themeIconMobile = document.getElementById('theme-toggle-icon-mobile');
-
-function toggleTheme() {
-    if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        themeIcon.className = 'fas fa-moon text-slate-700';
-        themeIconMobile.className = 'fas fa-moon text-slate-700';
-        localStorage.setItem('theme', 'light');
-    } else {
-        html.classList.add('dark');
-        themeIcon.className = 'fas fa-sun text-yellow-400';
-        themeIconMobile.className = 'fas fa-sun text-yellow-400';
-        localStorage.setItem('theme', 'dark');
-    }
+function updateThemeLabel() {
+  const light = root.dataset.theme === 'light'
+  themeToggle.setAttribute('aria-label', light ? 'Usar tema escuro' : 'Usar tema claro')
 }
 
-themeToggleBtn.addEventListener('click', toggleTheme);
-themeToggleMobileBtn.addEventListener('click', toggleTheme);
+themeToggle.addEventListener('click', () => {
+  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'
+  localStorage.setItem('deyverson-theme', root.dataset.theme)
+  updateThemeLabel()
+})
 
-// Verificar preferência anterior do usuário
-if (localStorage.getItem('theme') === 'light') {
-    html.classList.remove('dark');
-    themeIcon.className = 'fas fa-moon text-slate-700';
-    themeIconMobile.className = 'fas fa-moon text-slate-700';
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') === 'true'
+  menuButton.setAttribute('aria-expanded', String(!open))
+  mobileMenu.hidden = open
+})
+
+mobileMenu.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    mobileMenu.hidden = true
+    menuButton.setAttribute('aria-expanded', 'false')
+  })
+})
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const selected = button.dataset.filter
+    let visible = 0
+
+    filterButtons.forEach((item) => {
+      const active = item === button
+      item.classList.toggle('active', active)
+      item.setAttribute('aria-pressed', String(active))
+    })
+
+    projects.forEach((project) => {
+      const categories = project.dataset.category.split(' ')
+      const matches = selected === 'all' || categories.includes(selected)
+      project.hidden = !matches
+      if (matches) visible += 1
+    })
+
+    document.getElementById('filter-status').textContent = `${visible} projetos exibidos.`
+  })
+})
+
+copyButton.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(copyButton.dataset.email)
+    copyStatus.textContent = 'E-mail copiado para a área de transferência.'
+  } catch {
+    copyStatus.textContent = `E-mail: ${copyButton.dataset.email}`
+  }
+})
+
+function onScroll() {
+  const scrollable = document.documentElement.scrollHeight - innerHeight
+  const percentage = scrollable > 0 ? (scrollY / scrollable) * 100 : 0
+  progress.style.width = `${percentage}%`
+  header.classList.toggle('scrolled', scrollY > 16)
 }
 
-// ==========================================================================
-// LÓGICA DO CARROSSEL INTERATIVO
-// ==========================================================================
+addEventListener('scroll', onScroll, { passive: true })
+addEventListener('resize', onScroll)
 
-const track = document.getElementById('carousel-track');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const cards = document.querySelectorAll('.carousel-item');
-const sectionProjetos = document.getElementById('projetos');
+if (reduceMotion) {
+  document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'))
+} else {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return
+      entry.target.classList.add('visible')
+      observer.unobserve(entry.target)
+    })
+  }, { threshold: 0.12 })
 
-let index = 0;
-let autoPlayTimer = null;
-
-// Função atualizada para suportar até 4 cards simultâneos
-function getVisibleCardsCount() {
-    if (window.innerWidth >= 1280) return 4; // Se a tela for grande, exibe os 4 juntos
-    if (window.innerWidth >= 1024) return 3;
-    if (window.innerWidth >= 640) return 2;
-    return 1;
+  document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element))
 }
 
-// Move o trilho calculando a largura exata + o espaçamento real
-function moveCarousel() {
-    const visibleCards = getVisibleCardsCount();
-    const maxIndex = cards.length - visibleCards;
-    
-    if (index > maxIndex) index = 0; 
-    if (index < 0) index = maxIndex;
+const sections = [...document.querySelectorAll('main section[id]')]
+const desktopLinks = [...document.querySelectorAll('.desktop-nav a')]
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return
+    desktopLinks.forEach((link) => {
+      link.classList.toggle('active', link.hash === `#${entry.target.id}`)
+    })
+  })
+}, { rootMargin: '-35% 0px -55%' })
 
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    // Move exatamente a largura do card + os 24px de gap configurados no Tailwind
-    const amountToMove = (cardWidth + 24) * index; 
-    
-    track.style.transform = `translateX(-${amountToMove}px)`;
-}
-
-// Avança um card
-function nextSlide() {
-    index++;
-    moveCarousel();
-}
-
-// Volta um card
-function prevSlide() {
-    index--;
-    moveCarousel();
-}
-
-// Inicia o temporizador automático (Muda a cada 3.5 segundos)
-function startAutoPlay() {
-    if (autoPlayTimer === null) {
-        autoPlayTimer = setInterval(nextSlide, 3500);
-    }
-}
-
-// Para o temporizador automático
-function stopAutoPlay() {
-    if (autoPlayTimer !== null) {
-        clearInterval(autoPlayTimer);
-        autoPlayTimer = null;
-    }
-}
-
-// Event Listeners das Setas nas extremidades
-nextBtn.addEventListener('click', () => {
-    nextSlide();
-    // Reinicia o tempo se ele clicar manualmente
-    stopAutoPlay();
-    startAutoPlay();
-});
-
-prevBtn.addEventListener('click', () => {
-    prevSlide();
-    stopAutoPlay();
-    startAutoPlay();
-});
-
-// EFEITO INTELIGENTE: Pausa quando o mouse está sobre a seção de projetos
-sectionProjetos.addEventListener('mouseenter', stopAutoPlay);
-sectionProjetos.addEventListener('mouseleave', startAutoPlay);
-
-// Reajusta o cálculo caso o usuário mude o tamanho da tela do navegador
-window.addEventListener('resize', () => {
-    index = 0;
-    moveCarousel();
-});
-
-// Inicializa o carrossel
-startAutoPlay();
+sections.forEach((section) => sectionObserver.observe(section))
+document.getElementById('current-year').textContent = new Date().getFullYear()
+updateThemeLabel()
+onScroll()

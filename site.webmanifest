@@ -1,0 +1,9 @@
+{
+  "name": "Deyverson Lima | Portfólio",
+  "short_name": "Deyverson.dev",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07110f",
+  "theme_color": "#07110f",
+  "icons": []
+}
