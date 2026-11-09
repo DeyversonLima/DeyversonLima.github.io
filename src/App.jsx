@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import portrait from './assets/images/fotodeyversonlima.jpeg'
+import portrait from './assets/images/fotodeyversonlima.webp'
 import { profile, facts, skillGroups, projects, timeline, certifications } from './data/content'
 import { useActiveSection, useReveal } from './hooks/useUi'
 
@@ -19,6 +19,28 @@ const FILTERS = [
   { id: 'dados', label: 'Dados' },
 ]
 
+const MARQUEE_ITEMS = [
+  'REACT','VITE','JAVASCRIPT','TYPESCRIPT','PYTHON','SQL','PHP','C','HTML5','CSS3','SUPABASE','POSTGRESQL','GIT','GITHUB ACTIONS','FASTAPI','CYBERSECURITY',
+]
+
+function Marquee() {
+  return (
+    <div className="hero-marquee" aria-hidden="true">
+      <div className="marquee-track">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="marquee-group" aria-hidden={copy === 1}>
+            {MARQUEE_ITEMS.map((item) => (
+              <span key={`${copy}-${item}`} className="marquee-token">
+                <span className="marquee-item">{item}</span>
+                <span className="marquee-sep">?</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 export default function App() {
   useReveal()
   const active = useActiveSection(NAV.map((n) => n.id))
@@ -223,46 +245,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="hero-marquee" aria-hidden="true">
-            <div className="marquee-track">
-              <div className="marquee-group">
-                <span className="marquee-item">REACT</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">VITE</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">JAVASCRIPT</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">PYTHON</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">SQL</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">PHP</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">GIT</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">GITHUB ACTIONS</span>
-                <span className="marquee-sep">✦</span>
-              </div>
-              <div className="marquee-group" aria-hidden="true">
-                <span className="marquee-item">REACT</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">VITE</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">JAVASCRIPT</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">PYTHON</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">SQL</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">PHP</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">GIT</span>
-                <span className="marquee-sep">✦</span>
-                <span className="marquee-item">GITHUB ACTIONS</span>
-                <span className="marquee-sep">✦</span>
-              </div>
-            </div>
-          </div>
+          <Marquee />
         </section>
 
         <section className="about section shell" id="sobre" aria-labelledby="about-title">

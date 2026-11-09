@@ -23,7 +23,7 @@ export const profile = {
 export const facts = [
   { value: '2028', label: 'previsão de graduação' },
   { value: '300 h', label: 'qualificação ágil CEUB' },
-  { value: '5+', label: 'projetos em destaque' },
+  { value: '11', label: 'repositórios públicos' },
   { value: 'EN', label: 'inglês intermediário' },
 ]
 
@@ -36,23 +36,37 @@ export const skillGroups = [
   {
     number: '02',
     title: 'Web',
-    text: 'React, Vite, Tailwind CSS, APIs REST, formulários e interfaces responsivas.',
+    text: 'React, Vite, Tailwind CSS, FastAPI, APIs REST, formulários e interfaces responsivas.',
   },
   {
     number: '03',
     title: 'Dados',
-    text: 'PostgreSQL, Supabase, SQL Server, modelagem relacional e Power BI.',
+    text: 'PostgreSQL, Supabase, SQL Server, MySQL, modelagem relacional e Power BI.',
   },
   {
     number: '04',
-    title: 'Engenharia',
-    text: 'Git/GitHub, CI com Actions, métodos ágeis, UML, requisitos e noções de DevOps.',
+    title: 'Engenharia & Segurança',
+    text: 'Git/GitHub, CI com Actions, métodos ágeis, UML, DevOps, laboratórios de cibersegurança e análise de vulnerabilidades.',
   },
 ]
 
 export const projects = [
   {
     id: '01',
+    meta: 'React · Vite · GitHub Actions · 2026',
+    categories: ['web'],
+    type: 'Portfólio profissional',
+    title: 'DeyversonLima.github.io',
+    description:
+      'Portfólio pessoal em React e Vite com conteúdo separado da interface, currículos, seção de projetos atualizada e deploy automatizado no GitHub Pages via Actions.',
+    tags: ['React', 'Vite', 'GitHub Pages', 'CI/CD'],
+    links: [
+      { label: 'Site', href: 'https://deyversonlima.github.io/' },
+      { label: 'Código', href: 'https://github.com/DeyversonLima/DeyversonLima.github.io' },
+    ],
+  },
+  {
+    id: '02',
     meta: 'React · Supabase · 2026',
     categories: ['web', 'dados'],
     type: 'Projeto acadêmico em equipe',
@@ -66,7 +80,40 @@ export const projects = [
     ],
   },
   {
-    id: '02',
+    id: '03',
+    meta: 'Python · Segurança · 2026',
+    categories: ['backend'],
+    type: 'Laboratório educacional (fork/adaptação)',
+    title: 'DIO Agent Cybersecurity',
+    description:
+      'Mentor de cibersegurança baseado no DIO Agent, com análise de vulnerabilidades no Hermes e laboratório de SQL Injection em Python, focado em aprendizado defensivo.',
+    tags: ['Python', 'Security', 'SQL Injection', 'Lab'],
+    links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/dio-agent-cybersecurity' }],
+  },
+  {
+    id: '04',
+    meta: 'Python · MIT · 2026',
+    categories: ['backend'],
+    type: 'Laboratório educacional',
+    title: 'Simulador de Malwares (Python)',
+    description:
+      'Laboratório educacional de simulação de ransomware e keylogger com Python e foco em defesa cibernética, para estudo controlado de ameaças e contramedidas.',
+    tags: ['Python', 'Cybersecurity', 'Defesa', 'MIT'],
+    links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/simulador-malwares-python' }],
+  },
+  {
+    id: '05',
+    meta: 'Kali · Nmap · Shell · 2026',
+    categories: ['backend'],
+    type: 'Projeto final Santander Cibersegurança',
+    title: 'Cibersegurança com Medusa',
+    description:
+      'Laboratório com Kali Linux, Metasploitable 2, Nmap e testes reais de FTP, complementado por estudos de Medusa, DVWA, força bruta e password spraying SMB.',
+    tags: ['Kali Linux', 'Nmap', 'Medusa', 'Pentest Lab'],
+    links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/projeto-ciberseguranca-medusa' }],
+  },
+  {
+    id: '06',
     meta: 'JavaScript ES6+ · 2026',
     categories: ['web', 'dados'],
     type: 'Projeto pessoal',
@@ -77,7 +124,7 @@ export const projects = [
     links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/finmarket' }],
   },
   {
-    id: '03',
+    id: '07',
     meta: 'Python · Pytest · 2026',
     categories: ['backend'],
     type: 'Ferramenta de terminal',
@@ -88,7 +135,7 @@ export const projects = [
     links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/task-manager-cli' }],
   },
   {
-    id: '04',
+    id: '08',
     meta: 'PHP · MySQL · 2026',
     categories: ['backend', 'dados', 'web'],
     type: 'E-commerce acadêmico',
@@ -99,18 +146,40 @@ export const projects = [
     links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/jacatech' }],
   },
   {
-    id: '05',
-    meta: 'HTML · JS · SQL',
+    id: '09',
+    meta: 'HTML · JS · SQL · Python',
     categories: ['web', 'dados'],
     type: 'Arquivo de aprendizado',
     title: 'portifolioHUB',
     description:
       'Hub pesquisável de exercícios acadêmicos, experimentos pessoais e documentação. Reúne calculadora, todo list, estudos SQL, formulário e automação em Python.',
-    tags: ['JavaScript', 'SQL', 'Documentação'],
+    tags: ['JavaScript', 'SQL', 'Python', 'Documentação'],
     links: [
       { label: 'Hub', href: 'https://deyversonlima.github.io/portifolioHUB/' },
       { label: 'Código', href: 'https://github.com/DeyversonLima/portifolioHUB' },
     ],
+  },
+  {
+    id: '10',
+    meta: 'FastAPI · AWS · 2026',
+    categories: ['backend', 'web'],
+    type: 'Atividade prática AWS',
+    title: 'FastAPI AWS',
+    description:
+      'API em FastAPI desenvolvida para atividades práticas de aprendizado em AWS, adaptada para explorar APIs, deploy e serviços em nuvem.',
+    tags: ['FastAPI', 'Python', 'AWS', 'API'],
+    links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/fastapi-aws' }],
+  },
+  {
+    id: '11',
+    meta: 'React · AWS · 2026',
+    categories: ['web'],
+    type: 'Atividade prática AWS',
+    title: 'React AWS',
+    description:
+      'Aplicação React para atividades práticas de aprendizado em AWS, adaptada para explorar deploy, serviços em nuvem e desenvolvimento web.',
+    tags: ['React', 'AWS', 'Deploy', 'Cloud'],
+    links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/react-aws' }],
   },
 ]
 
@@ -124,6 +193,11 @@ export const timeline = [
     year: '2026',
     title: 'Bootcamp de Engenharia de Software',
     text: 'Prática colaborativa com React, Supabase, pull requests, code review, testes automatizados, CI e deploy contínuo.',
+  },
+  {
+    year: '2026',
+    title: 'Laboratórios de Cibersegurança',
+    text: 'Projetos práticos com Kali Linux, Nmap, análise de vulnerabilidades e simulações educacionais em Python, com foco em defesa e aprendizado responsável.',
   },
   {
     year: '2025',
