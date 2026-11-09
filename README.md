@@ -1,49 +1,66 @@
-# deyversonlima.github.io
+﻿# DeyversonLima.github.io
 
-Portfólio pessoal de Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB.
+Site/portfólio profissional de **Deyverson Guedes Lima** (Engenharia de Software, CEUB).
 
-**Site:** [deyversonlima.github.io](https://deyversonlima.github.io/)
+## Stack
 
-## Conteúdo
-
-- apresentação e objetivos profissionais;
-- stack técnica organizada por área;
-- projetos selecionados com contexto e links;
-- trajetória acadêmica e prática;
-- certificações e formação complementar;
-- contato profissional sem exposição de documentos pessoais.
-
-## Experiência da interface
-
-- tema claro/escuro com preferência persistida;
-- filtros de projetos por área;
-- navegação móvel e indicação da seção ativa;
-- progresso de leitura;
-- ação para copiar o e-mail;
-- suporte a teclado, foco visível e preferência por movimento reduzido;
-- metadados de SEO, dados estruturados, sitemap e manifesto.
-
-## Executar localmente
-
-```bash
-git clone https://github.com/DeyversonLima/DeyversonLima.github.io.git
-cd DeyversonLima.github.io
-python -m http.server 8000
-```
-
-Acesse `http://localhost:8000`.
+- **React 18** + **Vite** (build estático, compatível com GitHub Pages)
+- Conteúdo separado da UI em `src/data/content.js`
+- Deploy automatizado via **GitHub Actions** (`.github/workflows/deploy.yml`)
 
 ## Estrutura
 
 ```text
-assets/
-├── css/style.css
-├── img/
-└── js/main.js
-index.html
-site.webmanifest
-robots.txt
-sitemap.xml
+.
+├─ .github/workflows/deploy.yml   # build + deploy no GitHub Pages
+├─ public/                        # arquivos copiados para dist/
+│  ├─ docs/                       # currículos (PDF padrão + Lattes)
+│  ├─ favicon.svg, robots.txt, site.webmanifest, sitemap.xml
+├─ src/
+│  ├─ assets/images/              # imagens importadas pelo bundle
+│  ├─ components/                 # (reservado para evolução)
+│  ├─ data/content.js             # perfil, projetos, skills, trajetória, certs
+│  ├─ hooks/useUi.js              # reveal/active section
+│  ├─ styles/global.css
+│  ├─ App.jsx
+│  └─ main.jsx
+├─ index.html                     # entry Vite
+├─ vite.config.js                 # base '/' para site de usuário
+└─ package.json
 ```
 
-O site é estático e publicado pelo GitHub Pages a partir da branch `main`. Não há coleta de dados, cookies de rastreamento ou formulário que envie informações a um servidor.
+## Desenvolvimento local
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+> `dist/` é artefato de build (gerado localmente/pelo Actions) e não deve ser commitado.
+
+## Publicação (GitHub Pages)
+
+1. No repositório: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Faça push na branch `main`; o workflow gera `dist/` e publica.
+3. Para `deyversonlima.github.io` (user site), `base` permanece `/` no `vite.config.js`.
+
+## Currículos
+
+- `public/docs/Curriculo_Deyverson_Guedes_Lima.pdf`
+- `public/docs/Curriculo_Lattes_Deyverson_Lima.pdf`
+
+## Qualidade / boas práticas aplicadas
+
+- Dados de conteúdo centralizados (`src/data/content.js`) para manutenção fácil.
+- Acessibilidade: skip link, semântica, `aria-*`/`aria-current`, foco visível, `Escape` no menu, `prefers-reduced-motion` (reveal e marquee).
+- SEO/meta: canonical, description, Open Graph/Twitter, JSON-LD, `robots.txt`, `sitemap.xml` (`lastmod`), manifest.
+- UX: transição suave de tema, `theme-color` dinâmico, marquee em rolagem lateral contínua (pausa no hover), foto com interação/arrasto reduzidos (melhor esforço no front).
+- Deploy reprodutível via Actions com `npm ci`; CI de build em push/PR (`.github/workflows/ci.yml`).
+

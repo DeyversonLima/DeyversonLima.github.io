@@ -1,340 +1,58 @@
-<!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio de Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB com projetos em desenvolvimento web, dados e cibersegurança.">
-  <meta name="theme-color" content="#07110f">
-  <meta property="og:title" content="Deyverson Lima | Engenharia de Software">
-  <meta property="og:description" content="Projetos, formação e trajetória em desenvolvimento de software.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://deyversonlima.github.io/">
-  <title>Deyverson Lima | Engenharia de Software</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script>
-    const savedTheme = localStorage.getItem('deyverson-theme')
-    const preferredTheme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
-    document.documentElement.dataset.theme = savedTheme || preferredTheme
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Deyverson Guedes Lima",
-      "url": "https://deyversonlima.github.io/",
-      "sameAs": [
-        "https://github.com/DeyversonLima",
-        "https://www.linkedin.com/in/deyversonlima"
-      ],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Centro Universitário de Brasília (CEUB)"
-      },
-      "knowsAbout": ["Engenharia de Software", "Desenvolvimento Web", "Banco de Dados", "Cibersegurança"]
-    }
-  </script>
-</head>
-<body>
-  <div class="progress" id="reading-progress" aria-hidden="true"></div>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-
-  <header class="site-header" id="topo">
-    <div class="nav-shell">
-      <a class="brand" href="#inicio" aria-label="Deyverson Lima, início">
-        <span class="brand-mark" aria-hidden="true">DL</span>
-        <span>Deyverson<span class="accent">.dev</span></span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#trajetoria">Trajetória</a>
-        <a href="#certificacoes">Certificações</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="icon-button" id="theme-toggle" type="button" aria-label="Usar tema claro" title="Alternar tema">
-          <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
-        </button>
-        <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span><span></span><span></span><span class="sr-only">Abrir menu</span>
-        </button>
-      </div>
-    </div>
-
-    <nav class="mobile-nav" id="mobile-menu" aria-label="Navegação móvel" hidden>
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#trajetoria">Trajetória</a>
-      <a href="#certificacoes">Certificações</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
-
-  <main id="conteudo">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-grid shell">
-        <div class="hero-copy reveal">
-          <p class="availability"><span></span> Aberto a oportunidades de estágio</p>
-          <p class="eyebrow">Engenharia de Software · Brasília, DF</p>
-          <h1 id="hero-title">Transformo aprendizado em <em>software que funciona.</em></h1>
-          <p class="intro">Sou Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB. Construo aplicações web, exploro dados e preparo minha próxima especialização: cibersegurança.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projetos">Explorar projetos <span aria-hidden="true">↘</span></a>
-            <a class="button secondary" href="assets/CurrículodoSistemadeCurrículosLattesDeyversonima.pdf" target="_blank">Currículo Lattes <span aria-hidden="true">↗</span></a>
-          </div>
-          <ul class="social-list" aria-label="Perfis profissionais">
-            <li><a href="https://github.com/DeyversonLima" target="_blank" rel="noreferrer">GitHub ↗</a></li>
-            <li><a href="https://www.linkedin.com/in/deyversonlima" target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
-            <li><a href="mailto:deyverson.g.lima@gmail.com">E-mail ↗</a></li>
-          </ul>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="portrait-frame">
-            <img src="assets/img/fotodeyversonlima.jpeg" alt="Retrato de Deyverson Lima" width="640" height="640">
-            <span class="portrait-label">Deyverson / 2026</span>
-          </div>
-          <div class="code-card" role="img" aria-label="Perfil resumido em formato de código">
-            <div class="code-bar"><span></span><span></span><span></span><small>profile.js</small></div>
-            <pre><code><span class="token-key">const</span> dev = {
-  curso: <span class="token-string">"Eng. de Software"</span>,
-  foco: [<span class="token-string">"web"</span>, <span class="token-string">"dados"</span>],
-  proximo: <span class="token-string">"cybersecurity"</span>,
-  postura: <span class="token-string">"aprender → construir"</span>
-}</code></pre>
-          </div>
-        </div>
-      </div>
-      <div class="hero-marquee" aria-hidden="true">
-        <div>REACT <span>✦</span> JAVASCRIPT <span>✦</span> PYTHON <span>✦</span> SQL <span>✦</span> PHP <span>✦</span> GIT <span>✦</span> SUPABASE <span>✦</span> DEVOPS <span>✦</span></div>
-      </div>
-    </section>
-
-    <section class="about section shell" id="sobre" aria-labelledby="about-title">
-      <div class="section-index reveal"><span>01</span><p>Sobre mim</p></div>
-      <div class="about-content">
-        <div class="reveal">
-          <p class="eyebrow">Código, contexto e curiosidade</p>
-          <h2 id="about-title">Interesse em tecnologia desde os 14. Formação para ir além do código.</h2>
-        </div>
-        <div class="about-grid reveal">
-          <p class="lead">Estou em transição para o 5º semestre de Engenharia de Software no CEUB, com previsão de conclusão em 2028. Gosto de entender o problema, organizar requisitos e transformar a solução em uma experiência clara para quem usa.</p>
-          <div>
-            <p>Minha prática reúne desenvolvimento full stack, banco de dados, trabalho em equipe com Git/GitHub e projetos acadêmicos com clientes reais. Depois da graduação, quero aprofundar meus estudos em cibersegurança — área que acompanha meu interesse por tecnologia desde a adolescência.</p>
-            <p>Também estudo inglês e sigo ampliando a base com cursos de Python, DevOps, Power BI, banco de dados, Linux e segurança.</p>
-          </div>
-        </div>
-
-        <div class="facts reveal" role="group" aria-label="Resumo profissional">
-          <div><strong>2028</strong><span>previsão de graduação</span></div>
-          <div><strong>300 h</strong><span>qualificação ágil CEUB</span></div>
-          <div><strong>5+</strong><span>projetos em destaque</span></div>
-          <div><strong>EN</strong><span>inglês intermediário</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="skills section" aria-labelledby="skills-title">
-      <div class="shell skills-layout">
-        <div class="section-index reveal"><span>02</span><p>Ferramentas</p></div>
-        <div>
-          <div class="section-heading reveal">
-            <p class="eyebrow">Stack em construção</p>
-            <h2 id="skills-title">Tecnologias que uso para tirar ideias do papel.</h2>
-          </div>
-          <div class="skill-groups reveal">
-            <article>
-              <span class="skill-number">01</span>
-              <h3>Desenvolvimento</h3>
-              <p>JavaScript, TypeScript, Python, PHP, C, HTML5 e CSS3.</p>
-            </article>
-            <article>
-              <span class="skill-number">02</span>
-              <h3>Web</h3>
-              <p>React, Vite, Tailwind CSS, APIs REST, formulários e interfaces responsivas.</p>
-            </article>
-            <article>
-              <span class="skill-number">03</span>
-              <h3>Dados</h3>
-              <p>PostgreSQL, Supabase, SQL Server, modelagem relacional e Power BI.</p>
-            </article>
-            <article>
-              <span class="skill-number">04</span>
-              <h3>Engenharia</h3>
-              <p>Git/GitHub, CI com Actions, métodos ágeis, UML, requisitos e noções de DevOps.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="projects section shell" id="projetos" aria-labelledby="projects-title">
-      <div class="section-index reveal"><span>03</span><p>Projetos</p></div>
-      <div>
-        <div class="section-heading projects-heading reveal">
-          <div>
-            <p class="eyebrow">Trabalho selecionado</p>
-            <h2 id="projects-title">Projetos com contexto, decisões e resultado.</h2>
-          </div>
-          <div class="filters" role="group" aria-label="Filtrar projetos">
-            <button class="filter active" type="button" data-filter="all" aria-pressed="true">Todos</button>
-            <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
-            <button class="filter" type="button" data-filter="backend" aria-pressed="false">Backend</button>
-            <button class="filter" type="button" data-filter="dados" aria-pressed="false">Dados</button>
-          </div>
-        </div>
-
-        <p class="filter-status sr-only" id="filter-status" aria-live="polite"></p>
-        <div class="project-list">
-          <article class="project-item reveal" data-category="web dados">
-            <div class="project-meta"><span>01</span><span>React · Supabase · 2026</span></div>
-            <div class="project-body">
-              <p class="project-type">Projeto acadêmico em equipe</p>
-              <h3>Imobiliária Control</h3>
-              <p>CRUD responsivo para gestão de imóveis, com validação, testes, integração PostgreSQL via Supabase e modo de demonstração local. Atuei na configuração, serviços de dados e operações CRUD.</p>
-              <ul class="project-tags"><li>React</li><li>Supabase</li><li>Vitest</li><li>CI</li></ul>
-            </div>
-            <div class="project-links">
-              <a href="https://imobiliaria-crude.vercel.app/" target="_blank" rel="noreferrer">Demo ↗</a>
-              <a href="https://github.com/DeyversonLima/imobiliaria-crud" target="_blank" rel="noreferrer">Código ↗</a>
-            </div>
-          </article>
-
-          <article class="project-item reveal" data-category="web dados">
-            <div class="project-meta"><span>02</span><span>JavaScript ES6+ · 2026</span></div>
-            <div class="project-body">
-              <p class="project-type">Projeto pessoal</p>
-              <h3>FinMarket</h3>
-              <p>Simulador educacional com 30 ativos fictícios, compra e venda, carteira, histórico, busca, notificações e persistência no navegador — sem dependências de produção.</p>
-              <ul class="project-tags"><li>JavaScript</li><li>CSS</li><li>LocalStorage</li><li>UX</li></ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/DeyversonLima/finmarket" target="_blank" rel="noreferrer">Código ↗</a>
-            </div>
-          </article>
-
-          <article class="project-item reveal" data-category="backend">
-            <div class="project-meta"><span>03</span><span>Python · Pytest · 2026</span></div>
-            <div class="project-body">
-              <p class="project-type">Ferramenta de terminal</p>
-              <h3>Task Manager CLI</h3>
-              <p>Gerenciador de tarefas com persistência JSON, escrita segura, tratamento de erros, cotação USD/BRL opcional e pipeline de testes e lint no GitHub Actions.</p>
-              <ul class="project-tags"><li>Python</li><li>CLI</li><li>Pytest</li><li>API REST</li></ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/DeyversonLima/task-manager-cli" target="_blank" rel="noreferrer">Código ↗</a>
-            </div>
-          </article>
-
-          <article class="project-item reveal" data-category="backend dados web">
-            <div class="project-meta"><span>04</span><span>PHP · MySQL · 2026</span></div>
-            <div class="project-body">
-              <p class="project-type">E-commerce acadêmico</p>
-              <h3>JacaTech</h3>
-              <p>Protótipo em arquitetura em camadas com catálogo, autenticação, carrinho, estoque e checkout. Inclui schema relacional, configuração por ambiente e execução reproduzível com Docker Compose.</p>
-              <ul class="project-tags"><li>PHP</li><li>MySQL</li><li>DDD</li><li>Docker</li></ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/DeyversonLima/jacatech" target="_blank" rel="noreferrer">Código ↗</a>
-            </div>
-          </article>
-
-          <article class="project-item reveal" data-category="web dados">
-            <div class="project-meta"><span>05</span><span>HTML · JS · SQL</span></div>
-            <div class="project-body">
-              <p class="project-type">Arquivo de aprendizado</p>
-              <h3>portifolioHUB</h3>
-              <p>Hub pesquisável de exercícios acadêmicos, experimentos pessoais e documentação. Reúne calculadora, todo list, estudos SQL, formulário e automação em Python.</p>
-              <ul class="project-tags"><li>JavaScript</li><li>SQL</li><li>Documentação</li></ul>
-            </div>
-            <div class="project-links">
-              <a href="https://deyversonlima.github.io/portifolioHUB/" target="_blank" rel="noreferrer">Hub ↗</a>
-              <a href="https://github.com/DeyversonLima/portifolioHUB" target="_blank" rel="noreferrer">Código ↗</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="journey section" id="trajetoria" aria-labelledby="journey-title">
-      <div class="shell journey-layout">
-        <div class="section-index reveal"><span>04</span><p>Trajetória</p></div>
-        <div>
-          <div class="section-heading reveal">
-            <p class="eyebrow">Aprendizado aplicado</p>
-            <h2 id="journey-title">Da curiosidade ao trabalho em equipe.</h2>
-          </div>
-          <ol class="timeline">
-            <li class="reveal">
-              <div class="timeline-year">2026</div>
-              <div><h3>Donizete Imóveis · Projeto de extensão CEUB</h3><p>Desenvolvimento em equipe de uma plataforma institucional responsiva para uma imobiliária real, com levantamento de requisitos, catálogo, busca, detalhes, contato e calculadora de financiamento.</p></div>
-            </li>
-            <li class="reveal">
-              <div class="timeline-year">2026</div>
-              <div><h3>Bootcamp de Engenharia de Software</h3><p>Prática colaborativa com React, Supabase, pull requests, code review, testes automatizados, CI e deploy contínuo.</p></div>
-            </li>
-            <li class="reveal">
-              <div class="timeline-year">2025</div>
-              <div><h3>Início da graduação no CEUB</h3><p>Fundamentos de computação, engenharia de requisitos, análise e projeto, métodos ágeis, modelagem e desenvolvimento de software.</p></div>
-            </li>
-            <li class="reveal">
-              <div class="timeline-year">2018+</div>
-              <div><h3>Interesse por tecnologia</h3><p>A curiosidade iniciada aos 14 anos evoluiu para estudo formal, experimentos próprios e o objetivo de atuar futuramente com cibersegurança.</p></div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="certifications section shell" id="certificacoes" aria-labelledby="cert-title">
-      <div class="section-index reveal"><span>05</span><p>Certificações</p></div>
-      <div>
-        <div class="section-heading reveal">
-          <p class="eyebrow">Formação complementar verificada</p>
-          <h2 id="cert-title">Base ampla, direção definida.</h2>
-        </div>
-        <div class="cert-grid reveal">
-          <article><span>CEUB · 2026</span><h3>Assistente de Projetos Ágeis de Sistemas</h3><p>300 horas</p></article>
-          <article><span>Fundação Bradesco · 2026</span><h3>Trilha de Banco de Dados</h3><p>38 horas</p></article>
-          <article><span>ENAP · 2026</span><h3>Aprendendo com Python</h3><p>20 horas</p></article>
-          <article><span>ENAP · 2026</span><h3>DevOps na Transformação Digital</h3><p>20 horas</p></article>
-          <article><span>ENAP · 2026</span><h3>Aplicação do Power BI na Gestão</h3><p>25 horas</p></article>
-          <article><span>Santander / DIO · 2026</span><h3>Fundamentos e práticas de Cibersegurança</h3><p>Formação em andamento</p></article>
-        </div>
-        <p class="cert-note reveal">Os documentos completos não são publicados aqui para preservar dados pessoais. Informações de curso, instituição e carga horária foram conferidas nos certificados.</p>
-      </div>
-    </section>
-
-    <section class="contact section" id="contato" aria-labelledby="contact-title">
-      <div class="shell contact-layout">
-        <div class="section-index reveal"><span>06</span><p>Contato</p></div>
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Vamos conversar</p>
-          <h2 id="contact-title">Procuro um time onde possa aprender, colaborar e entregar valor.</h2>
-          <p>Se você tem uma oportunidade de estágio, um projeto ou uma boa conversa sobre tecnologia, envie uma mensagem.</p>
-          <div class="contact-actions">
-            <a class="button primary" href="mailto:deyverson.g.lima@gmail.com">Escrever e-mail ↗</a>
-            <button class="button secondary" id="copy-email" type="button" data-email="deyverson.g.lima@gmail.com">Copiar e-mail</button>
-          </div>
-          <p class="copy-status" id="copy-status" aria-live="polite"></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="shell footer-grid">
-      <div><a class="brand footer-brand" href="#topo"><span class="brand-mark" aria-hidden="true">DL</span><span>Deyverson.dev</span></a><p>Engenharia de Software, aprendizado contínuo e código com propósito.</p></div>
-      <div class="footer-links"><a href="https://github.com/DeyversonLima" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/deyversonlima" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:deyverson.g.lima@gmail.com">E-mail ↗</a></div>
-      <p class="copyright">© <span id="current-year">2026</span> Deyverson Lima.<br>Construído com HTML, CSS e JavaScript.</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-</body>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfólio de Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB com projetos em desenvolvimento web, dados e cibersegurança." />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href="https://deyversonlima.github.io/" />
+    <meta property="og:title" content="Deyverson Lima | Engenharia de Software" />
+    <meta property="og:description" content="Projetos, formação, currículos e trajetória em desenvolvimento de software." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deyversonlima.github.io/" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deyverson Lima | Engenharia de Software" />
+    <meta name="twitter:description" content="Projetos, formação, currículos e trajetória em desenvolvimento de software." />
+    <title>Deyverson Lima | Engenharia de Software</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('deyverson-theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'light' ? '#f3f7f4' : '#07110f');
+        } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Deyverson Guedes Lima",
+        "url": "https://deyversonlima.github.io/",
+        "email": "mailto:deyverson.g.lima@gmail.com",
+        "sameAs": [
+          "https://github.com/DeyversonLima",
+          "https://www.linkedin.com/in/deyversonlima"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Centro Universitário de Brasília (CEUB)"
+        },
+        "knowsAbout": ["Engenharia de Software", "Desenvolvimento Web", "Banco de Dados", "Cibersegurança"]
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>Este site funciona melhor com JavaScript habilitado.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

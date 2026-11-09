@@ -2,8 +2,17 @@
   "name": "Deyverson Lima | Portfólio",
   "short_name": "Deyverson.dev",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07110f",
   "theme_color": "#07110f",
-  "icons": []
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
