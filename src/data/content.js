@@ -1,10 +1,10 @@
 export const profile = {
   name: 'Deyverson Guedes Lima',
-  role: 'Engenharia de Software · Brasília, DF',
+  role: 'Engenharia de Software · Full Stack · Brasília, DF',
   availability: 'Aberto a oportunidades de estágio',
   headline: ['Transformo aprendizado em ', 'software que funciona.'],
   intro:
-    'Sou Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB. Construo aplicações web, exploro dados e preparo minha próxima especialização: cibersegurança.',
+    'Sou Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB. Construo aplicações web full stack, trabalho com bancos de dados e complemento minha formação com cibersegurança e análise de dados.',
   email: 'deyverson.g.lima@gmail.com',
   github: 'https://github.com/DeyversonLima',
   linkedin: 'https://www.linkedin.com/in/deyversonlima',
@@ -23,7 +23,6 @@ export const profile = {
 export const facts = [
   { value: '2028', label: 'previsão de graduação' },
   { value: '300 h', label: 'qualificação ágil CEUB' },
-  { value: '11', label: 'repositórios públicos' },
   { value: 'EN', label: 'inglês intermediário' },
 ]
 
@@ -41,12 +40,12 @@ export const skillGroups = [
   {
     number: '03',
     title: 'Dados',
-    text: 'PostgreSQL, Supabase, SQL Server, MySQL, modelagem relacional e Power BI.',
+    text: 'PostgreSQL, Supabase, SQL Server, modelagem relacional, Power BI e Excel avançado com tabelas dinâmicas e VBA.',
   },
   {
     number: '04',
     title: 'Engenharia & Segurança',
-    text: 'Git/GitHub, CI com Actions, métodos ágeis, UML, DevOps, laboratórios de cibersegurança e análise de vulnerabilidades.',
+    text: 'Git/GitHub, revisão de código, CI com Actions, métodos ágeis, UML, Linux e laboratórios com Kali Linux e Nmap.',
   },
 ]
 
@@ -70,7 +69,12 @@ export const projects = [
     meta: 'React · Supabase · 2026',
     categories: ['web', 'dados'],
     type: 'Projeto acadêmico em equipe',
-    title: 'Imobiliária Control',
+    title: 'Imobiliária CRUD',
+    caseStudy: {
+      problem: 'Organizar o cadastro e a gestão de imóveis em uma aplicação colaborativa.',
+      contribution: 'Configurei o projeto, integrei o Supabase e implementei as operações CRUD e a camada de serviços.',
+      validation: 'O trabalho passou por pull requests e revisão de código. A aplicação foi disponibilizada para demonstração na Vercel.',
+    },
     description:
       'CRUD responsivo para gestão de imóveis, com validação, testes, integração PostgreSQL via Supabase e modo de demonstração local. Atuei na configuração, serviços de dados e operações CRUD.',
     tags: ['React', 'Supabase', 'Vitest', 'CI'],
@@ -82,9 +86,14 @@ export const projects = [
   {
     id: '03',
     meta: 'Python · Segurança · 2026',
-    categories: ['backend'],
+    categories: ['backend', 'seguranca'],
     type: 'Laboratório educacional (fork/adaptação)',
     title: 'DIO Agent Cybersecurity',
+    caseStudy: {
+      problem: 'Investigar como um login que concatena SQL pode aceitar uma entrada indevida e orientar a correção.',
+      contribution: 'Adaptei o DIO Agent para análise defensiva e implementei um laboratório SQLite em memória com uma consulta parametrizada.',
+      validation: 'Três testes verificaram o login legítimo, a senha incorreta e a tentativa de injeção antes e depois da correção. As sessões do Hermes estão no README.',
+    },
     description:
       'Mentor de cibersegurança baseado no DIO Agent, com análise de vulnerabilidades no Hermes e laboratório de SQL Injection em Python, focado em aprendizado defensivo.',
     tags: ['Python', 'Security', 'SQL Injection', 'Lab'],
@@ -93,7 +102,7 @@ export const projects = [
   {
     id: '04',
     meta: 'Python · MIT · 2026',
-    categories: ['backend'],
+    categories: ['backend', 'seguranca'],
     type: 'Laboratório educacional',
     title: 'Simulador de Malwares (Python)',
     description:
@@ -104,11 +113,16 @@ export const projects = [
   {
     id: '05',
     meta: 'Kali · Nmap · Shell · 2026',
-    categories: ['backend'],
+    categories: ['backend', 'seguranca'],
     type: 'Projeto final Santander Cibersegurança',
     title: 'Cibersegurança com Medusa',
+    caseStudy: {
+      problem: 'Entender o risco de serviços expostos e de FTP com acesso anônimo.',
+      contribution: 'Mapeei serviços com Nmap em um laboratório Host-only com Kali Linux e Metasploitable 2.',
+      validation: 'Verifiquei o acesso FTP anônimo no laboratório e documentei o cenário, as evidências e as mitigações.',
+    },
     description:
-      'Laboratório com Kali Linux, Metasploitable 2, Nmap e testes reais de FTP, complementado por estudos de Medusa, DVWA, força bruta e password spraying SMB.',
+      'Laboratório isolado com Kali Linux, Metasploitable 2 e Nmap para investigar serviços expostos e documentar o risco de FTP anônimo e suas mitigações.',
     tags: ['Kali Linux', 'Nmap', 'Medusa', 'Pentest Lab'],
     links: [{ label: 'Código', href: 'https://github.com/DeyversonLima/projeto-ciberseguranca-medusa' }],
   },
@@ -187,7 +201,7 @@ export const timeline = [
   {
     year: '2026',
     title: 'Donizete Imóveis · Projeto de extensão CEUB',
-    text: 'Desenvolvimento em equipe de uma plataforma institucional responsiva para uma imobiliária real, com levantamento de requisitos, catálogo, busca, detalhes, contato e calculadora de financiamento.',
+    text: 'Em equipe de quatro, desenvolvi uma plataforma responsiva com catálogo, busca, formulários e calculadora de financiamento. O escopo foi revisto após reuniões e validação direta com o cliente.',
   },
   {
     year: '2026',
@@ -198,6 +212,11 @@ export const timeline = [
     year: '2026',
     title: 'Laboratórios de Cibersegurança',
     text: 'Projetos práticos com Kali Linux, Nmap, análise de vulnerabilidades e simulações educacionais em Python, com foco em defesa e aprendizado responsável.',
+  },
+  {
+    year: '2025',
+    title: 'Sports City Brazil · Projeto de extensão CEUB',
+    text: 'Em equipe de cinco, padronizei o relatório e cruzei registros de turmas, alunos e frequência para apoiar propostas de melhoria em uma escola de futebol.',
   },
   {
     year: '2025',
@@ -214,12 +233,13 @@ export const timeline = [
 export const certifications = [
   { org: 'CEUB · 2026', title: 'Assistente de Projetos Ágeis de Sistemas', hours: '300 horas' },
   { org: 'Fundação Bradesco · 2026', title: 'Trilha de Banco de Dados', hours: '38 horas' },
+  { org: 'ENAP · 2026', title: 'Excel Avançado', hours: '30 horas' },
   { org: 'ENAP · 2026', title: 'Aprendendo com Python', hours: '20 horas' },
   { org: 'ENAP · 2026', title: 'DevOps na Transformação Digital', hours: '20 horas' },
   { org: 'ENAP · 2026', title: 'Aplicação do Power BI na Gestão', hours: '25 horas' },
   {
     org: 'Santander / DIO · 2026',
-    title: 'Fundamentos e práticas de Cibersegurança',
-    hours: 'Formação em andamento',
+    title: 'Cibersegurança do Zero à Prática',
+    hours: '37 horas · novembro de 2026',
   },
 ]

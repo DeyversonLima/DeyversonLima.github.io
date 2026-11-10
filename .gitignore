@@ -2,6 +2,7 @@
 node_modules/
 dist/
 dist-ssr/
+src/data/github.generated.json
 
 # local
 *.local

@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "sync:github": "node scripts/sync-github.mjs",
+    "predev": "npm run sync:github",
     "dev": "vite",
+    "prebuild": "npm run sync:github",
     "build": "vite build",
     "preview": "vite preview"
   },

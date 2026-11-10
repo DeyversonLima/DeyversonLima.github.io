@@ -1,25 +1,32 @@
 ﻿# DeyversonLima.github.io
 
-Site/portfólio profissional de **Deyverson Guedes Lima** (Engenharia de Software, CEUB).
+Portfólio profissional de **Deyverson Guedes Lima**, estudante de Engenharia de Software no CEUB, com projetos em desenvolvimento web, dados e cibersegurança.
+
+**Site:** [deyversonlima.github.io](https://deyversonlima.github.io)
 
 ## Stack
 
 - **React 18** + **Vite** (build estático, compatível com GitHub Pages)
-- Conteúdo separado da UI em `src/data/content.js`
+- Conteúdo autoral separado da interface em `src/data/content.js`
+- Catálogo híbrido que combina curadoria manual com os repositórios públicos do GitHub
+- Preferências visuais persistentes para movimento, velocidade do carrossel e indicador de disponibilidade
 - Deploy automatizado via **GitHub Actions** (`.github/workflows/deploy.yml`)
 
 ## Estrutura
 
 ```text
 .
-├─ .github/workflows/deploy.yml   # build + deploy no GitHub Pages
+├─ .github/workflows/             # integração contínua e deploy no GitHub Pages
 ├─ public/                        # arquivos copiados para dist/
 │  ├─ docs/                       # currículos (PDF padrão + Lattes)
 │  ├─ favicon.svg, robots.txt, site.webmanifest, sitemap.xml
+├─ scripts/
+│  └─ sync-github.mjs             # sincroniza o catálogo público do GitHub
 ├─ src/
 │  ├─ assets/images/              # imagens importadas pelo bundle
-│  ├─ components/                 # (reservado para evolução)
-│  ├─ data/content.js             # perfil, projetos, skills, trajetória, certs
+│  ├─ data/
+│  │  ├─ content.js               # perfil, curadoria, skills, trajetória e certs
+│  │  └─ catalog.js               # combina conteúdo autoral e dados sincronizados
 │  ├─ hooks/useUi.js              # reveal/active section
 │  ├─ styles/global.css
 │  ├─ App.jsx
@@ -34,6 +41,22 @@ Site/portfólio profissional de **Deyverson Guedes Lima** (Engenharia de Softwar
 ```bash
 npm install
 npm run dev
+```
+
+O site fica disponível, por padrão, em `http://localhost:5173`.
+
+## Catálogo de projetos
+
+Edite `src/data/content.js` para manter títulos, descrições, categorias e estudos de caso autorais.
+Ao iniciar o ambiente local ou gerar o build, `scripts/sync-github.mjs` consulta os repositórios
+públicos do perfil e acrescenta aqueles que ainda não possuem curadoria manual. As descrições
+autorais sempre têm prioridade.
+
+Se a consulta falhar, a última lista sincronizada continua disponível. Em um checkout limpo e sem
+rede, o site usa apenas o catálogo autoral. Para atualizar os dados com o Vite já aberto:
+
+```bash
+npm run sync:github
 ```
 
 ## Build
@@ -58,9 +81,18 @@ npm run preview
 
 ## Qualidade / boas práticas aplicadas
 
-- Dados de conteúdo centralizados (`src/data/content.js`) para manutenção fácil.
-- Acessibilidade: skip link, semântica, `aria-*`/`aria-current`, foco visível, `Escape` no menu, `prefers-reduced-motion` (reveal e marquee).
+- Dados autorais centralizados e preservados durante a sincronização com o GitHub.
+- Projetos paginados em grupos de cinco, com filtros por área e estudos de caso em destaque.
+- Acessibilidade: skip link, HTML semântico, `aria-*`, foco visível e suporte a teclado.
 - SEO/meta: canonical, description, Open Graph/Twitter, JSON-LD, `robots.txt`, `sitemap.xml` (`lastmod`), manifest.
-- UX: transição suave de tema, `theme-color` dinâmico, marquee em rolagem lateral contínua (pausa no hover), foto com interação/arrasto reduzidos (melhor esforço no front).
+- UX: temas claro e escuro com transição suave, barra de rolagem personalizada e faixa contínua de habilidades.
+- Preferências visuais: movimento e velocidade da faixa, pulso de disponibilidade e persistência local das escolhas.
+- O painel de preferências fecha por clique externo, tecla `Escape` ou ao sair da área visível do rodapé.
 - Deploy reprodutível via Actions com `npm ci`; CI de build em push/PR (`.github/workflows/ci.yml`).
+
+## Privacidade
+
+O portfólio publica apenas informações profissionais selecionadas. Certificados completos não são
+expostos, e os currículos disponíveis devem ser revisados antes de cada publicação para evitar dados
+pessoais desnecessários.
 
