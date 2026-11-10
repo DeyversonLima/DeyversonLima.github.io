@@ -70,7 +70,7 @@ function Marquee({ enabled, speed }) {
 export default function App() {
   useReveal()
   const active = useActiveSection(NAV.map((n) => n.id))
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark')
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'light')
   const [menuOpen, setMenuOpen] = useState(false)
   const [filter, setFilter] = useState('all')
   const [projectPage, setProjectPage] = useState(1)

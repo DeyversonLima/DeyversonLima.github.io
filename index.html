@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfólio de Deyverson Guedes Lima, estudante de Engenharia de Software no CEUB com projetos em desenvolvimento web, dados e cibersegurança." />
-    <meta name="theme-color" content="#07110f" />
+    <meta name="theme-color" content="#f3f7f4" />
     <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="https://deyversonlima.github.io/" />
     <meta property="og:title" content="Deyverson Lima | Engenharia de Software" />
@@ -27,7 +27,7 @@
       (function () {
         try {
           var saved = localStorage.getItem('deyverson-theme');
-          var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          var theme = saved || 'light';
           document.documentElement.dataset.theme = theme;
           var meta = document.querySelector('meta[name="theme-color"]');
           if (meta) meta.setAttribute('content', theme === 'light' ? '#f3f7f4' : '#07110f');
