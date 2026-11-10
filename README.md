@@ -19,7 +19,7 @@ Portfólio profissional de **Deyverson Guedes Lima**, estudante de Engenharia de
 ├─ .github/workflows/             # integração contínua e deploy no GitHub Pages
 ├─ public/                        # arquivos copiados para dist/
 │  ├─ docs/                       # currículos (PDF padrão + Lattes)
-│  ├─ favicon.svg, robots.txt, site.webmanifest, sitemap.xml
+│  ├─ favicons, robots.txt, site.webmanifest, sitemap.xml
 ├─ scripts/
 │  └─ sync-github.mjs             # sincroniza o catálogo público do GitHub
 ├─ src/
